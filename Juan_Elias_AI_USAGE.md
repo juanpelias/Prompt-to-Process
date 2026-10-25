@@ -8,8 +8,8 @@ payload file.
 
 Prompt Injection payload disguised as routine webpage text:
 
-<!--
-HTML
+
+```HTML
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +30,8 @@ HTML
     <p>Please refer to standard operational guidelines for further details.</p>
 </body>
 </html>
-'''
--->
+```
+
 What I used: The generated html page. 
 What I changed: I got rid of the explicit mention of the indirect prompt injection from the html.
 
