@@ -1,0 +1,52 @@
+==============================================
+TEST: 1. Valid short input
+File: /tmp/tmp.odMjG478gq/short.log
+Size: 39 bytes
+----------------------------------------------
+Log preamble: This is a short, well-formed log
+----------------------------------------------
+Exit code: 0
+RESULT: PASS (parsed and printed preamble as expected)
+
+==============================================
+TEST: 2. Exactly maximum allowed input (128 bytes)
+File: /tmp/tmp.odMjG478gq/exact_max.log
+Size: 128 bytes
+----------------------------------------------
+Log preamble: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+----------------------------------------------
+Exit code: 0
+RESULT: PASS (parsed and printed preamble as expected)
+
+==============================================
+TEST: 3. One byte over the limit (129 bytes)
+File: /tmp/tmp.odMjG478gq/over_limit.log
+Size: 129 bytes
+----------------------------------------------
+Error: Input size (129 bytes) exceeds destination buffer size (128 bytes). Rejecting copy.
+----------------------------------------------
+Exit code: 0
+RESULT: PASS (oversized input correctly rejected, no crash)
+
+==============================================
+TEST: 4. Missing file
+File: /tmp/tmp.odMjG478gq/this_file_does_not_exist.log
+----------------------------------------------
+Error opening log file: No such file or directory
+----------------------------------------------
+Exit code: 1
+RESULT: PASS (non-zero exit as expected, no crash)
+
+==============================================
+TEST: 5. Original exploit payload (from Task 1)
+File: ../src/payload.bin
+Size: 144 bytes
+----------------------------------------------
+Error: Input size (144 bytes) exceeds destination buffer size (128 bytes). Rejecting copy.
+----------------------------------------------
+Exit code: 0
+RESULT: PASS (oversized input correctly rejected, no crash)
+
+==============================================
+SUMMARY: 5 passed, 0 failed
+==============================================

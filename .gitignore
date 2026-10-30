@@ -1,0 +1,34 @@
+# CSCE 465/765 - HW3 .gitignore
+# Excludes compiled binaries and generated exploit payloads.
+# The grader is expected to build from source using the commands in
+# report.pdf / README.md, not run prebuilt binaries.
+
+# Compiled parser binaries (no extension, produced by -o)
+src/legacy_log_parser
+src/legacy_log_parser_fixed
+legacy_log_parser
+legacy_log_parser_fixed
+
+# Generated exploit payloads
+*.bin
+payload.bin
+
+# Object files / debug artifacts, in case of alternate build flows
+*.o
+*.out
+a.out
+core
+core.*
+*.core
+
+# Marker files produced by running the exploit (regenerated each run,
+# shouldn't be committed as "results")
+markers/*.txt
+
+# Python cache, if make_payload.py or test scripts get __pycache__'d
+__pycache__/
+*.pyc
+
+# Editor/OS cruft
+*.swp
+.DS_Store
